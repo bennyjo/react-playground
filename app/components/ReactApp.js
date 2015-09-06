@@ -1,30 +1,46 @@
-var React = require('react/addons'),
+var React = require('react'),
     mui = require('material-ui'),
     ThemeManager = new mui.Styles.ThemeManager(),
-    RaisedButton = mui.RaisedButton;
+
+    AppBar = mui.AppBar,
+    FlatButton = mui.FlatButton,
+
+    List = mui.List,
+    ListItem = mui.ListItem;
+
+var listStyle = { width: '230px' };
 
 var ReactApp = React.createClass({
-
-      childContextTypes: {
+    childContextTypes: {
         muiTheme: React.PropTypes.object
-      },
-
-      getChildContext: function() {
+    },
+    getChildContext: function() {
         return {
-          muiTheme: ThemeManager.getCurrentTheme()
+            muiTheme: ThemeManager.getCurrentTheme()
         };
-      },
-
-      componentDidMount: function () {
+    },
+    componentDidMount: function() {
         console.log('componentDidMount');
-      },
-
-      render: function () {
+    },
+    render: function() {
         return (
-          <div><RaisedButton label="takes a long time though" /></div>
-        )
-      }
-  });
+          <div>
+            <AppBar 
+              title="buzzbattery"
+              iconElementRight={<FlatButton label="Log out" />} />
 
-/* Module.exports instead of normal dom mounting */
+            <div style={listStyle}>
+              <List subheader="Batteries">
+                <ListItem primaryText="Battery 1" />
+                <ListItem primaryText="Battery 2" />
+                <ListItem primaryText="Battery 3" />
+                <ListItem primaryText="Battery 4" />
+                <ListItem primaryText="Battery 5" />
+              </List>
+            </div>
+          </div>
+        )
+    }
+});
+
 module.exports = ReactApp;
