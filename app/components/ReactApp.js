@@ -1,15 +1,29 @@
 /** @jsx React.DOM */
 
-var React = require('react/addons');
+var React = require('react/addons'),
+    mui = require('material-ui'),
+    ThemeManager = new mui.Styles.ThemeManager(),
+    RaisedButton = mui.RaisedButton;
+
 var ReactApp = React.createClass({
+
+      childContextTypes: {
+        muiTheme: React.PropTypes.object
+      },
+
+      getChildContext: function() {
+        return {
+          muiTheme: ThemeManager.getCurrentTheme()
+        };
+      },
 
       componentDidMount: function () {
         console.log('componentDidMount');
       },
+
       render: function () {
         return (
-          <div id="table-area">
-          </div>
+          <div><RaisedButton label="Default" /></div>
         )
       }
   });

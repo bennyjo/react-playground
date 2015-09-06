@@ -8,7 +8,7 @@ module.exports = function(app) {
 	    // and generates the markup
 		var reactHtml = React.renderToString(ReactApp({}));
 	    // Output html rendered by react
-		// console.log(myAppHtml);
+		// console.log(reactHtml);
 	    res.render('index.ejs', {reactOutput: reactHtml});
 	});
 
