@@ -8,7 +8,19 @@ var React = require('react'),
     List = mui.List,
     ListItem = mui.ListItem;
 
-var listStyle = { width: '230px' };
+var listStyle = { 
+  width: '230px',
+  position: 'absolute',
+  top: '64px',
+  overflow: 'hidden'
+};
+
+var contentStyle = {
+  minHeight: '1000px',
+  borderLeft: '1px solid rgb(224, 224, 224)',
+  marginLeft: '230px',
+  padding: '24px'
+};
 
 var ReactApp = React.createClass({
     childContextTypes: {
@@ -30,13 +42,17 @@ var ReactApp = React.createClass({
               iconElementRight={<FlatButton label="Log out" />} />
 
             <div style={listStyle}>
-              <List subheader="Batteries">
+              <List subheader="Your batteries">
                 <ListItem primaryText="Battery 1" />
                 <ListItem primaryText="Battery 2" />
                 <ListItem primaryText="Battery 3" />
                 <ListItem primaryText="Battery 4" />
                 <ListItem primaryText="Battery 5" />
               </List>
+            </div>
+
+            <div style={contentStyle}>
+              Content area
             </div>
           </div>
         )
