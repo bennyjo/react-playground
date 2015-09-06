@@ -21,7 +21,7 @@ var ReactApp = React.createClass({
 
       render: function () {
         return (
-          <div><RaisedButton label="say what?" /></div>
+          <div><RaisedButton label="takes a long time though" /></div>
         )
       }
   });

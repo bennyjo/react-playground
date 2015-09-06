@@ -7,6 +7,7 @@ var reactify = require('reactify');
 var babelify = require('babelify');
 var watchify = require('watchify');
 var notify = require('gulp-notify');
+var livereload = require('gulp-livereload');
 
 gulp.task('default', ['style', 'scripts-continuous']);
 
@@ -19,6 +20,8 @@ gulp.task('scripts-single', function() {
 });
 
 gulp.task('scripts-continuous', function() {
+	livereload.listen();
+
     return buildScript('main.js', true);
 });
 
@@ -45,7 +48,8 @@ function buildScript(file, watch) {
         var stream = bundler.bundle();
         return stream.on('error', handleErrors)
             .pipe(source(file))
-            .pipe(gulp.dest('./public/'));
+            .pipe(gulp.dest('./public/'))
+            .pipe(livereload());
     }
     
     // listen for an update and run rebundle
