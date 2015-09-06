@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 var React = require('react/addons'),
     mui = require('material-ui'),
     ThemeManager = new mui.Styles.ThemeManager(),
@@ -23,7 +21,7 @@ var ReactApp = React.createClass({
 
       render: function () {
         return (
-          <div><RaisedButton label="Default" /></div>
+          <div><RaisedButton label="say what?" /></div>
         )
       }
   });

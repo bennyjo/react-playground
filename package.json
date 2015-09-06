@@ -12,12 +12,17 @@
     "react-tap-event-plugin": "*"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
     "browserify": "*",
     "gulp": "*",
     "gulp-browserify": "*",
     "gulp-concat": "*",
+    "gulp-notify": "^2.2.0",
+    "gulp-util": "^3.0.6",
     "node-jsx": "*",
     "react-tools": "*",
-    "reactify": "*"
+    "reactify": "*",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   }
 }
