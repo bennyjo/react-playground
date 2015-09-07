@@ -6,13 +6,19 @@ var browserify = require('browserify');
 var reactify = require('reactify');
 var babelify = require('babelify');
 var watchify = require('watchify');
+var watch = require('gulp-watch');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
 
 gulp.task('default', ['style', 'scripts-continuous']);
 
 gulp.task('style', function() {
-    gulp.src(['app/style.css']).pipe(gulp.dest('./public/'));
+    livereload.listen();
+
+    gulp.src(['app/style.css'])
+        .pipe(watch('app/style.css'))
+        .pipe(gulp.dest('./public/'))
+        .pipe(livereload());
 });
 
 gulp.task('scripts-single', function() {
