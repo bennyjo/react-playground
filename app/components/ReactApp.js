@@ -24,17 +24,17 @@ var contentStyle = {
 
 var ReactApp = React.createClass({
     childContextTypes: {
-        muiTheme: React.PropTypes.object
+      muiTheme: React.PropTypes.object
     },
     
     getChildContext: function() {
-        return {
-            muiTheme: ThemeManager.getCurrentTheme()
-        };
+      return {
+          muiTheme: ThemeManager.getCurrentTheme()
+      };
     },
     
     componentDidMount: function() {
-        console.log('componentDidMount');
+      console.log('componentDidMount');
     },
     
     saySomething: function(pageNumber) {
