@@ -26,14 +26,21 @@ var ReactApp = React.createClass({
     childContextTypes: {
         muiTheme: React.PropTypes.object
     },
+    
     getChildContext: function() {
         return {
             muiTheme: ThemeManager.getCurrentTheme()
         };
     },
+    
     componentDidMount: function() {
         console.log('componentDidMount');
     },
+    
+    saySomething: function(pageNumber) {
+      console.log('click: ', pageNumber);
+    },
+
     render: function() {
         return (
           <div>
@@ -43,11 +50,11 @@ var ReactApp = React.createClass({
 
             <div style={listStyle}>
               <List subheader="Your batteries">
-                <ListItem primaryText="Battery 1" />
-                <ListItem primaryText="Battery 2" />
-                <ListItem primaryText="Battery 3" />
-                <ListItem primaryText="Battery 4" />
-                <ListItem primaryText="Battery 5" />
+                <ListItem primaryText="Battery 1" onClick={this.saySomething.bind(this, 1)} />
+                <ListItem primaryText="Battery 2" onClick={this.saySomething.bind(this, 2)} />
+                <ListItem primaryText="Battery 3" onClick={this.saySomething.bind(this, 3)} />
+                <ListItem primaryText="Battery 4" onClick={this.saySomething.bind(this, 4)} />
+                <ListItem primaryText="Battery 5" onClick={this.saySomething.bind(this, 5)} />
               </List>
             </div>
 
