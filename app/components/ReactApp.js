@@ -32,6 +32,10 @@ var ReactApp = React.createClass({
           muiTheme: ThemeManager.getCurrentTheme()
       };
     },
+
+    getInitialState: function() {
+      return {pageNumber: null};
+    },
     
     componentDidMount: function() {
       console.log('componentDidMount');
@@ -39,6 +43,7 @@ var ReactApp = React.createClass({
     
     saySomething: function(pageNumber) {
       console.log('click: ', pageNumber);
+      this.setState({pageNumber: pageNumber});
     },
 
     render: function() {
@@ -59,7 +64,7 @@ var ReactApp = React.createClass({
             </div>
 
             <div style={contentStyle}>
-              Content area
+              Content area {this.state.pageNumber}
             </div>
           </div>
         )
