@@ -9,13 +9,15 @@ var watchify = require('watchify');
 var watch = require('gulp-watch');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
+var open = require('gulp-open');
+var nodemon = require('gulp-nodemon')
 
-gulp.task('default', ['style', 'scripts-continuous']);
+gulp.task('default', ['style', 'scripts-continuous', 'start']);
 
 gulp.task('style', function() {
     livereload.listen();
 
-    gulp.src(['app/style.css'])
+    return gulp.src(['app/style.css'])
         .pipe(watch('app/style.css'))
         .pipe(gulp.dest('./public/'))
         .pipe(livereload());
@@ -29,6 +31,21 @@ gulp.task('scripts-continuous', function() {
 	livereload.listen();
 
     return buildScript('main.js', true);
+});
+
+gulp.task('start', ['scripts-continuous'], function () {
+    return nodemon({
+        script: 'server.js',
+        env: { 'NODE_ENV': 'development' },
+        ignore: ['*'],
+    }).on('start', ['open']);
+})
+
+gulp.task('open', function(){
+    return gulp.src('./package.json')
+        .pipe(open({
+            uri: 'http://localhost:4444'
+        }));
 });
 
 function handleErrors() {
