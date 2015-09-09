@@ -4,6 +4,7 @@ var React = require('react'),
 
     AppBar = mui.AppBar,
     FlatButton = mui.FlatButton,
+    Avatar = mui.Avatar,
 
     List = mui.List,
     ListItem = mui.ListItem;
@@ -20,6 +21,10 @@ var contentStyle = {
   borderLeft: '1px solid rgb(224, 224, 224)',
   marginLeft: '230px',
   padding: '24px'
+};
+
+var iconStyle = {
+  'float': 'left'
 };
 
 var ReactApp = React.createClass({
@@ -51,7 +56,10 @@ var ReactApp = React.createClass({
           <div>
             <AppBar 
               title="buzzbattery"
-              iconElementRight={<FlatButton label="Log out" />} />
+              iconElementRight = <FlatButton primary={true} label="bennyjo">
+                <Avatar style={iconStyle} size={35} src="images/benny-profile-small.jpg" />
+              </FlatButton>
+            />
 
             <div style={listStyle}>
               <List subheader="Your batteries">
