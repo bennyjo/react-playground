@@ -1,4 +1,7 @@
-body {
-	margin: 0px;
-	font-family: 'Roboto', sans-serif;
+.buzzbattery .navbar-brand > img {
+  height: 23px;
+  display: inline;
+  margin-right: 14px;
+  position: relative;
+  top: -1px;
 }
