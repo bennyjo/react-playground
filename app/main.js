@@ -1,5 +1,5 @@
 var React = require('react');
-var ReactApp = require('./components/ReactAppMaterialUi');
+var ReactApp = require('./components/ReactBootstrap');
 
 var mountNode = document.getElementById("react-main-mount");
 
