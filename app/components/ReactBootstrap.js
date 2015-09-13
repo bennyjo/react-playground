@@ -1,7 +1,7 @@
 var React = require('react');
 var rbs = require('react-bootstrap');
 
-var bButton = rbs.Button;
+var Button = rbs.Button;
 
 var ReactApp = React.createClass({
     
@@ -11,7 +11,9 @@ var ReactApp = React.createClass({
 
     render: function() {
         return (
-          <div><p>something!</p></div>
+          <div>
+            <Button bsStyle="primary" bsSize="large">:D</Button>
+          </div>
         )
     }
 });
