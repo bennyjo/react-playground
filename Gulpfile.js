@@ -38,14 +38,19 @@ gulp.task('start', ['scripts-continuous'], function () {
         script: 'server.js',
         env: { 'NODE_ENV': 'development' },
         ignore: ['*'],
-    }).on('start', ['open']);
-})
-
-gulp.task('open', function(){
-    return gulp.src('./package.json')
-        .pipe(open({
-            uri: 'http://localhost:4444'
-        }));
+        stdout: false
+    }).on('readable', function(data) {
+        this.stdout.on('data', function(chunk) {
+            if (/Server is Up and Running/.test(chunk)) {
+                gulp.src('./package.json')
+                    .pipe(open({
+                        uri: 'http://localhost:4444'
+                    }));
+            }
+            process.stdout.write(chunk);
+        });
+        this.stderr.pipe(process.stderr);
+    });
 });
 
 function handleErrors() {
