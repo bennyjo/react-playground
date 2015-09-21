@@ -5,15 +5,29 @@ var Tabs = rbs.Tabs;
 var Tab = rbs.Tab;
 
 var LeftNavigation = React.createClass({
-    render: function() {
-        return (
-          <Tabs className="container" defaultActiveKey={2} position="left" standalone={false} animation={false} tabWidth={3}>
-            <Tab eventKey={1} title="Battery 1">Tab 1 content</Tab>
-            <Tab eventKey={2} title="Battery 2">Tab 2 content</Tab>
-            <Tab eventKey={3} title="Battery 3">Tab 3 content</Tab>
-          </Tabs>
-        )
-    }
+  getInitialState: function() {
+    return {
+      batteries: [
+        { id: 1, name: "Battery 1" },
+        { id: 2, name: "Battery 2" },
+        { id: 3, name: "Battery 3" },
+        { id: 4, name: "Battery 4" },
+        { id: 5, name: "Battery 5" }
+      ]
+    };
+  },
+
+  render: function() {
+    var BatteryTabs = this.state.batteries.map(function(battery, index) {
+      return <Tab eventKey={index} title={battery.name}>Tab {index+1} content</Tab>;
+    });
+
+    return (
+      <Tabs className="container" defaultActiveKey={1} position="left" standalone={false} animation={false} tabWidth={3}>
+        {BatteryTabs}
+      </Tabs>
+    )
+  }
 });
 
 module.exports = LeftNavigation;
