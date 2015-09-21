@@ -21,7 +21,7 @@ var FilterInput = React.createClass({
   render: function() {
     return (
       <Input
-        type="text" 
+        type="text"
         ref="filterInput"
         value={this.state.value}
         onChange={this.handleChange} />
