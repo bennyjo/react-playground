@@ -5,9 +5,9 @@ var Input = rbs.Input;
 
 var FilterInput = React.createClass({
   handleChange: function() {
-    this.setState({
-      value: this.refs.filterInput.getValue()
-    });
+    this.props.onUserInput(
+      this.refs.filterInput.getValue()
+    );
   },
 
   render: function() {
