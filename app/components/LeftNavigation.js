@@ -9,6 +9,7 @@ var FilterInput = require('./FilterInput');
 var LeftNavigation = React.createClass({
   getInitialState: function() {
     return {
+      filterText: '',
       batteries: [
         { id: 1, name: "Battery 1" },
         { id: 2, name: "Battery 2" },
@@ -26,7 +27,7 @@ var LeftNavigation = React.createClass({
 
     return (
       <Tabs className="container" defaultActiveKey={1} position="left" standalone={false} animation={false} tabWidth={3}>
-        <Tab eventKey={0} title={<FilterInput />}/>
+        <Tab eventKey={0} title={<FilterInput filterText={this.state.filterText} />}/>
         {BatteryTabs}
       </Tabs>
     )
