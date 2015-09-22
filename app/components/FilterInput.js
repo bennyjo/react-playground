@@ -4,18 +4,10 @@ var rbs = require('react-bootstrap');
 var Input = rbs.Input;
 
 var FilterInput = React.createClass({
-  getInitialState: function() {
-    return {
-      value: ''
-    };
-  },
-
   handleChange: function() {
     this.setState({
       value: this.refs.filterInput.getValue()
     });
-
-    console.log(this.refs.filterInput.getValue());
   },
 
   render: function() {
@@ -23,7 +15,7 @@ var FilterInput = React.createClass({
       <Input
         type="text"
         ref="filterInput"
-        value={this.state.value}
+        value={this.props.filterText}
         onChange={this.handleChange} />
     )
   }
